@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="author" content="Reza Mahendra - Zhaenx" />
+      <meta name="description" content="kasir Apps - Static HTML/JS" />
+      <meta name="og::description" content="kasir Apps - Static HTML/JS" />
+      <meta name="referrer" content="origin" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" itemprop="image" content="" />
+      <meta property="og:site_name" content="Zhaenx" />
+      <link rel="icon" type="image/x-icon" href="./static/img/icons/favicon.ico" />
+      <link rel="icon" href="./static/img/icons/logo.png" sizes="" type="image/png" />
+      <link rel="apple-touch-icon" href="./static/img/icons/logo.png" sizes="any" type="image/png" />
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./static/img/icons/logo.png" />
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./static/img/icons/logo.png" />
+      <title>Kasir Web Apps - Kelompok 5</title>
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/product.css" />
+    </head>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top p-2 zx__Root">
+      <div class="container">
+        <img src="./static/img/LogoUBSI.png" class="img-thumbnail p-0" alt="BSI" />
+        <img src="./static/img/kdk.jpg" class="img-thumbnail mx-3" alt="BSI" />
+        <a class="navbar-brand" href="#">Kelompok<span class="kelompok"> 5</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#zxNavlist" aria-controls="zxNavlist" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end align-items-center" id="zxNavlist">
+          <img src="./static/img/z.png" alt="Logo" class="img-thumbnail p-0 zximgAdmin" /><a href="#" disabled class="fs-5"> Zhaenx_Admin</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="product" class="zx__Root">
+      <div class="container">
+        <!-- JUDUL & TOMBOL KEMBALI -->
+        <div class="row mb-3">
+          <div class="col-lg-12 d-flex justify-content-between align-items-center">
+            <h4 class="m-0"><i class="bi bi-plus-circle-fill"></i> Tambah Produk</h4>
+            <a href="index.html" class="btn btn-outline-secondary btn-sm"> <i class="bi bi-arrow-left"></i> Back To Home</a>
+          </div>
+        </div>
+
+        <!-- FORM TAMBAH PRODUK -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-12">
+            <form id="addProductForm">
+              <div class="row g-3">
+                <!-- KIRI: Nama & Harga -->
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="mb-3">
+                      <label for="nama" class="form-label">Nama Produk <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="nama" placeholder="Contoh: Nasi Goreng Spesial" required />
+                    </div>
+                    <div class="mb-3">
+                      <label for="price" class="form-label">Harga (Rp) <span class="text-danger">*</span></label>
+                      <input type="number" id="price" class="form-control" placeholder="Contoh: 15000" min="1" required />
+                    </div>
+                    <div class="mb-3">
+                      <label for="category" class="form-label">Kategori <span class="text-danger">*</span></label>
+                      <select class="form-select" id="category" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="Makanan">🍳 Makanan</option>
+                        <option value="Minuman">🥤 Minuman</option>
+                        <option value="Makanan ringan">🍪 Makanan ringan</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- KANAN: URL Gambar & Preview -->
+                <div class="col-lg-6">
+                  <div class="card">
+                    <div class="mb-3">
+                      <label for="img" class="form-label">Image URL <span class="text-muted fw-normal">(opsional)</span></label>
+                      <input type="text" class="form-control" id="img" placeholder="https://example.com/image.jpg" />
+                      <div class="form-text">Kosongkan jika tidak ada gambar.</div>
+                    </div>
+                    <!-- Preview Gambar -->
+                    <div class="text-center">
+                      <p class="form-label mb-1 PreviewText">Preview Gambar</p>
+                      <img id="imgPreview" src="" alt="Preview" class="img-thumbnail d-none" style="width: 120px; height: 120px; object-fit: cover" />
+                      <div id="imgPlaceholder" class="imgPlaceholder">
+                        <i class="bi bi-image fs-1"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TOMBOL SUBMIT -->
+                <div class="col-lg-12 d-flex justify-content-center align-items-center gap-2 mt-4">
+                  <button type="reset" class="btn btnReset" id="btnReset"><i class="bi bi-stars"></i> Clear Input</button>
+                  <button type="submit" class="btn btnSubmit" id="btnAddProduct"><i class="bi bi-plus-circle"></i> Tambah Produk</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- TABEL DAFTAR PRODUK CUSTOM -->
+        <div class="row d-flex justify-content-center mt-5">
+          <div class="col-lg-12">
+            <h5 class="mb-3 produkTabel d-flex justify-content-start align-items-center"><i class="bi bi-list-check fs-3"></i> Produk yang Ditambahkan</h5>
+
+            <!-- Empty state -->
+            <div id="emptyState" class="text-muted">
+              <i class="bi bi-inbox fs-1 d-block mb-0"></i>
+              <h5 class="mb-0">Belum ada produk yang ditambahkan.</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Table -->
+        <div class="table-responsive row d-flex justify-content-center align-items-center mb-4" id="productTable">
+          <div class="col-lg-1 zxHeader" id="zxTabel">No.</div>
+          <div class="col-lg-3 zxHeader" id="zxTabel">Gambar</div>
+          <div class="col-lg-2 zxHeader" id="zxTabel">Nama Produk</div>
+          <div class="col-lg-2 zxHeader" id="zxTabel">Harga Produk</div>
+          <div class="col-lg-2 zxHeader" id="zxTabel">Kategori</div>
+          <div class="col-lg-2 zxHeader" id="zxTabel">Aksi</div>
+        </div>
+        <!-- Table body -->
+        <div id="productContainer" class="product-scroll"></div>
+      </div>
+    </section>
+    <!-- EDIT PRODUCT MODAL -->
+    <div class="modal fade" id="editProductModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <form id="editProductForm">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Produk</h4>
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+              <input type="hidden" id="editId" />
+
+              <div class="mb-3">
+                <label for="editNama" class="form-label">Nama Produk</label>
+                <input type="text" id="editNama" class="form-control" />
+              </div>
+
+              <div class="mb-3">
+                <label for="editPrice" class="form-label">Harga</label>
+                <input type="number" id="editPrice" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="editImg" class="form-label"> URL Gambar </label>
+
+                <input type="text" id="editImg" class="form-control" placeholder="https://example.com/image.jpg" />
+
+                <div class="form-text">Kosongkan jika tidak ada gambar.</div>
+              </div>
+
+              <div class="text-center">
+                <p class="form-label mb-2 PreviewText">Preview Gambar</p>
+
+                <img id="editImgPreview" src="" alt="Preview" class="img-thumbnail d-none" style="width: 120px; height: 120px; object-fit: cover" />
+
+                <div id="editImgPlaceholder" class="imgPlaceholder">
+                  <i class="bi bi-image fs-1"></i>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="editCategory" class="form-label">Kategori</label>
+
+                <select id="editCategory" class="form-select">
+                  <option value="">-- Pilih Kategori --</option>
+                  <option value="Makanan">🍳 Makanan</option>
+                  <option value="Minuman">🥤 Minuman</option>
+                  <option value="Makanan ringan">🍪 Makanan ringan</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btnReset" data-bs-dismiss="modal" type="button"><i class="bi bi-x-octagon"></i> Batal</button>
+
+              <button class="btn btnSubmit" type="submit"><i class="bi bi-floppy2-fill"></i> Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Delete -->
+    <div class="modal fade" id="deleteProductModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title">
+              <i class="bi bi-trash3"></i>
+              Hapus Produk
+            </h5>
+
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body text-center">
+            <i class="bi bi-exclamation-triangle-fill text-warning fs-1"></i>
+
+            <p class="mt-3 mb-0">Yakin ingin menghapus produk ini?</p>
+
+            <small class="text-muted"> Data yang dihapus tidak dapat dikembalikan. </small>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+
+            <button class="btn btn-danger" id="confirmDeleteBtn">Ya, Hapus</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container-fluid zx__Root">
+        <div class="row d-flex justify-content-between align-items-center">
+          <div class="col-4 col-lg-3">
+            <p class="mb-0 text-center" id="copy"></p>
+            <p class="mb-0 text-center">Kelompok 5</p>
+          </div>
+          <div class="col-4 col-lg-3">
+            <p class="mb-0 text-center">Reza Mahendra</p>
+            <p class="mb-0 text-center">Fullstack Web Dev | Penetration Tester.</p>
+            <div class="sosmed text-center d-flex justify-content-center align-items-center">
+              <a href="https://github.com/R-Mahendra" rel="noreferrer" target="_blank" class="github"><i class="bi bi-github fs-5"></i></a>
+              <a href="javascript:void(0)" class="tweeter mx-3"><i class="bi bi-twitter-x fs-5"></i></a>
+              <a href="javascript:void(0)" class="tiktok"><i class="bi bi-tiktok fs-5"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/cookieUtils.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/addProduct.js"></script>
+  </body>
+</html>

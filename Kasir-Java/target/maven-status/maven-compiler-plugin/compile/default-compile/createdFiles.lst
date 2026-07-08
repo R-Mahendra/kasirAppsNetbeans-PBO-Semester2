@@ -1,0 +1,15 @@
+com\zhaenx\kasir\model\MenuItem.class
+com\zhaenx\kasir\controller\CartController.class
+com\zhaenx\kasir\service\AuthService.class
+com\zhaenx\kasir\KasirApplication.class
+com\zhaenx\kasir\model\User.class
+com\zhaenx\kasir\service\CartService.class
+com\zhaenx\kasir\controller\HomeController.class
+com\zhaenx\kasir\controller\PdfController.class
+com\zhaenx\kasir\service\MenuService.class
+com\zhaenx\kasir\controller\AuthController.class
+com\zhaenx\kasir\config\SessionInterceptor.class
+com\zhaenx\kasir\config\WebConfig.class
+com\zhaenx\kasir\model\CartItem.class
+com\zhaenx\kasir\service\CalculationService.class
+com\zhaenx\kasir\service\MenuService$1.class
